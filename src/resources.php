@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LiveTheDreamHomes - Resources</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    
+<h1 class="site-title stacked-title">
+  <span>Live</span>
+  <span>The</span>
+  <span>Dream</span>
+  <span>Homes</span>
+</h1>
+
+
+    <a href="admin/login.php" class="admin-login-btn">Admin Login</a>
+</header>
+
+
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="resources.html">Resources</a>
+</nav>
+
+<section>
+    <h2>Helpful Resources</h2>
+
+
+    <?php
+    require_once 'db.php';
+    $result = $conn->query("SELECT * FROM resources");
+    while ($row = $result->fetch_assoc()):
+    ?>
+    <a href="uploads/resources/<?php echo $row['filename']; ?>" target="_blank">
+        View Resource
+    </a>
+    <?php endwhile; ?>
+
+
+</section>
+
+<footer>
+    <p>Connect with us:</p>
+    <a href="https://www.facebook.com/rj.brophyrealtor" target="_blank">Facebook</a>
+    <a href="hhttps://www.instagram.com/raymondbrophyrealestate/" target="_blank">Instagram</a>
+</footer>
+
+</body>
+</html>
